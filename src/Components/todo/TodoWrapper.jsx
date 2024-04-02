@@ -63,6 +63,11 @@ const TodoWrapper = () => {
     setTodos(todos.map((todo) => todo.id === id ? {...todo, task: task, isEditing: !todo.isEditing} : todo));
   };
 
+  const toggleTodo = id => {
+    console.log('toggled');
+    setTodos(todos.map((todo) => todo.id === id ? {...todo, completed: !todo.completed} : todo));
+  };
+
   return (
     <div className='p-5 bg-white shadow-md rounded-md relative w-3/6 min-w-96 flex flex-col gap-5 max-h-[calc(100dvh-6rem)] min-h-[calc(100dvh-6rem)] border-2 border-blue-300 justify-between'>
 
@@ -76,7 +81,7 @@ const TodoWrapper = () => {
 
       <div className='flex flex-col space-y-5 flex-1 overflow-y-hidden'>
         <TodoForm addTodo={addTodo}/>
-        <div className='overflow-y-auto max-h-full flex-1'>
+        <div className='overflow-y-auto overflow-x-hidden max-h-full flex-1'>
         {todos.length === 0 ? (
         <p className='absolute w-fit h-fit left-0 right-0 m-auto top-0 bottom-0 text-gray-700 p-2 rounded-md bg-red-100 text-centertext-sm shadow-md'>Looks like you haven't added any tasks yet! <FontAwesomeIcon icon={faFrown}></FontAwesomeIcon></p>
         ) : (
@@ -86,7 +91,7 @@ const TodoWrapper = () => {
                 (
                   <EditTodoForm key={i} editTodo={editTask} task={todo} cancelEditingTodo={cancelEditingTodo}/>
                 ) : (
-                  <TodoItem key={i} index={i} task={todo} deleteTodo={deleteTodo} editTodo={editTodo}></TodoItem>
+                  <TodoItem key={i} index={i} task={todo} deleteTodo={deleteTodo} editTodo={editTodo} toggleTodo={toggleTodo}></TodoItem>
                 )
               ))}
             </div>
