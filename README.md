@@ -2,13 +2,16 @@
 
 A simple todo app project that I made using React.JS
 
+## [Demo & Preview](https://rokus-todo-app.vercel.app)
+![Screenshot 2024-04-04 at 08-56-18 Roku's Todo App](https://github.com/Rokuazery/todo-app/assets/48817307/af7f749d-638c-4ad8-9eae-b973b47ae453)
+
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
