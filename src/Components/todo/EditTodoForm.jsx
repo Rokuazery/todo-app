@@ -12,7 +12,9 @@ import Button from "../button/Button";
 
 const EditTodoForm = ({ editTodo, cancelEditingTodo, task }) => {
   const [value, setValue] = useState(task.task);
-  const [dateValue, setDateValue] = useState(dayjs(task.dueDate));
+  const [dateValue, setDateValue] = useState(
+    task.dueDate !== null ? dayjs(task.dueDate) : null
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
