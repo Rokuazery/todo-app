@@ -1,5 +1,6 @@
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { dateFormat } from "../../App";
 import dayjs from "dayjs";
 import React from "react";
 
@@ -23,9 +24,17 @@ const TodoItem = ({ task, deleteTodo, editTodo, toggleTodo }) => {
       <div className="flex flex-col gap-1 ml-[2px]">
         <p className="font-semibold">{task.task}</p>
         <p className="text-xs">
-          {task.dueDate
-            ? dueDate.fromNow()
-            : "There's no specific deadline for this task."}
+          {task.dueDate ? (
+            <span>
+              {dueDate.fromNow()}
+              {" - "}
+              <span className="text-xs">
+                {dayjs(task.dueDate).format(dateFormat)}
+              </span>
+            </span>
+          ) : (
+            "There's no specific deadline for this task."
+          )}
         </p>
       </div>
       <div className="space-x-3">

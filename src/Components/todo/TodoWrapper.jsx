@@ -5,8 +5,10 @@ import TodoItem from "./TodoItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFrown, faTasksAlt } from "@fortawesome/free-solid-svg-icons";
 import EditTodoForm from "./EditTodoForm";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { dateFormat } from "../../App";
 import TodoPanel from "./TodoPanel";
+import dayjs from "dayjs";
+import GithubLink from "../github-link/GithubLink";
 
 const TodoWrapper = () => {
   const [todos, setTodos] = useState([]);
@@ -14,13 +16,6 @@ const TodoWrapper = () => {
 
   const [loaded, setLoaded] = useState(false);
   const [newTask, setNewTask] = useState(false);
-
-  // this just to avoid the security risk warning
-  const openGithubInNewTab = (e) => {
-    e.preventDefault();
-    const url = "https://github.com/Rokuazery";
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
@@ -41,7 +36,7 @@ const TodoWrapper = () => {
   const toggleAddTodo = () => setNewTask(!newTask);
 
   const addTodo = (todo, dueDate) => {
-    if (todo.length === 0) {
+    if (todo.trim() === "") {
       alert("Todo task cannot be empty!");
       return;
     }
@@ -102,9 +97,15 @@ const TodoWrapper = () => {
       return;
     }
 
-    const filtered = todos.filter((todo) =>
-      todo.task.toLowerCase().includes(search.toLowerCase())
-    );
+    const filtered = todos.filter((todo) => {
+      const taskMatch = todo.task.toLowerCase().includes(search.toLowerCase());
+      const dueDateMatch = dayjs(todo.dueDate)
+        .format(dateFormat)
+        .toLowerCase()
+        .includes(search.toLowerCase());
+      return taskMatch || dueDateMatch;
+    });
+
     setFilteredTodos(filtered);
   };
 
@@ -152,21 +153,7 @@ const TodoWrapper = () => {
         </div>
       </div>
 
-      <div className="flex justify-center flex-col items-center">
-        <hr className="w-full mb-2"></hr>
-        <p>
-          <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon> Visit my Github
-          page{" "}
-          <a
-            className="text-blue-600 underline font-semibold"
-            href="https://github.com/Rokuazery"
-            onClick={openGithubInNewTab}
-          >
-            @Rokuazery
-          </a>{" "}
-          ❤️
-        </p>
-      </div>
+      <GithubLink />
 
       {newTask ? (
         <div className="z-50 w-full h-full absolute backdrop-brightness-50 left-0 right-0 top-0 bottom-0 flex items-center justify-center p-10">
