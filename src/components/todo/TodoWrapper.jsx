@@ -112,7 +112,7 @@ const TodoWrapper = () => {
   const displayTodos = filteredTodos !== null ? filteredTodos : todos;
 
   return (
-    <div className="p-5 bg-white shadow-md rounded-md w-3/6 min-w-96 flex flex-col max-h-[calc(100dvh-6rem)] min-h-[calc(100dvh-6rem)] border-2 border-blue-300 justify-between">
+    <div className="p-5 bg-white shadow-md rounded-md w-3/6 min-w-80 flex flex-col max-h-[calc(100dvh-6rem)] min-h-[calc(100dvh-6rem)] border-2 border-blue-300 justify-between">
       <header className="w-fit flex items-center gap-2 mb-5">
         <div className="space-y-1">
           <h1 className="font-semibold">Todo-App</h1>

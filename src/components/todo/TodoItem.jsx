@@ -37,9 +37,9 @@ const TodoItem = ({ task, deleteTodo, editTodo, toggleTodo }) => {
           )}
         </p>
       </div>
-      <div className="space-x-3">
+      <div className="md:space-x-3 flex flex-col items-center gap-2 justify-cente md:block">
         <FontAwesomeIcon
-          className="text-gray-600 hover:text-black transition-all ease-in-out bg-white shadow-sm rounded-md p-2 text-sm"
+          className="text-gray-600 hover:text-black transition-all ease-in-out bg-white shadow-sm rounded-md p-2 sm:text-sm text-xs"
           icon={faEdit}
           onClick={(e) => {
             e.stopPropagation();
@@ -47,7 +47,7 @@ const TodoItem = ({ task, deleteTodo, editTodo, toggleTodo }) => {
           }}
         ></FontAwesomeIcon>
         <FontAwesomeIcon
-          className="text-gray-600 hover:text-black transition-all ease-in-out bg-white shadow-sm rounded-md p-2 text-sm"
+          className="text-gray-600 hover:text-black transition-all ease-in-out bg-white shadow-sm rounded-md p-2 sm:text-sm text-xs"
           icon={faTrash}
           onClick={(e) => {
             e.stopPropagation();

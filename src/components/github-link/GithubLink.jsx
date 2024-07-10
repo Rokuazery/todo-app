@@ -12,7 +12,7 @@ const GithubLink = () => {
   };
 
   return (
-    <div className="flex justify-center flex-col items-center">
+    <div className="flex justify-center flex-col items-center md:text-base text-xs sm:text-sm">
       <hr className="w-full mb-2"></hr>
       <p>
         <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon> Visit my Github page{" "}
