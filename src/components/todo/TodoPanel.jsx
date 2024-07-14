@@ -24,7 +24,7 @@ const TodoPanel = ({ toggleAddTodo, filterTodo }) => {
       <Button
         onClick={toggleAddTodo}
         type="button"
-        className="md:hidden size-10 w-11"
+        className="md:hidden size-10 w-12"
       >
         <FontAwesomeIcon icon={faPlus} />
       </Button>

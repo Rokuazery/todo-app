@@ -126,7 +126,7 @@ const TodoWrapper = () => {
 
         <div className="overflow-scroll max-h-full flex-1 space-y-5 mt-5">
           {todos.length === 0 ? (
-            <p className="absolute w-fit h-fit left-0 right-0 m-auto top-0 bottom-0 text-gray-700 p-2 rounded-md bg-red-100 text-centertext-sm shadow-md">
+            <p className="absolute w-fit h-fit left-0 right-0 m-auto top-0 bottom-0 text-gray-700 p-2 rounded-md bg-red-100 text-centertext-sm shadow-md text-xs text-wrap md:text-sm lg:text-base">
               Looks like you haven't added any tasks yet!{" "}
               <FontAwesomeIcon icon={faFrown}></FontAwesomeIcon>
             </p>
